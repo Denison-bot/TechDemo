@@ -7,6 +7,7 @@ TagManager:
   - Fire
   - Item
   - KillBox
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

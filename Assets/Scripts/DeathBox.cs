@@ -10,6 +10,8 @@ public class DeathBox : MonoBehaviour
     public GameObject player;
     public GameObject spawnPos;
 
+    public bool checkPointHit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,10 @@ public class DeathBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (checkPointHit == true)
+        {
+            spawn = checkPointPos.transform.position;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

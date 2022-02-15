@@ -44,12 +44,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
-        private bool canPickUp = false;
-        private int itemsCollected;
-        private GameObject thisItem;
-   
-        public TMP_Text itemCount;
-        public TMP_Text pressE;
+        //private bool canPickUp = false;
+        //private int itemsCollected;
+        //private GameObject thisItem;
+
+        //public float respawnTimer = 5.0f;
+        //public bool collected = false;
+
+
+        //public TMP_Text itemCount;
+        //public TMP_Text pressE;
 
         // Use this for initialization
         private void Start()
@@ -70,18 +74,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            itemCount.text = "Items collected " + itemsCollected;
+            //itemCount.text = "Items collected " + itemsCollected;
 
-            if ( canPickUp == false)
-            {
-                //pressE.GetComponent<GameObject>().SetActive(false);
-                pressE.text = " ";
-            }
-            else if (canPickUp == true)
-            {
-                //pressE.GetComponent<GameObject>().SetActive(true);
-                pressE.text = "Press E";
-            }
+            //if (canPickUp == false)
+            //{
+            //    //pressE.GetComponent<GameObject>().SetActive(false);
+            //    pressE.text = " ";
+            //}
+            //else if (canPickUp == true)
+            //{
+            //    //pressE.GetComponent<GameObject>().SetActive(true);
+            //    pressE.text = "Press E";
+            //}
 
 
             RotateView();
@@ -105,32 +109,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-            if (canPickUp == true && Input.GetKeyDown(KeyCode.E))
-            {
-                //Debug.Log("Button Pressed");
-                thisItem.SetActive(false);
-                itemsCollected++;
-                //pressEText.SetActive(false);
-                canPickUp = false;
-            }
+
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == ("Item"))
-            {
-                thisItem = other.gameObject;
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.tag == ("Item"))
+        //    {
+        //        thisItem = other.gameObject;
 
-                canPickUp = true;
-            }
-        }
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.tag == "Item")
-            {
-                canPickUp = false;
-            }
-        }
+        //        canPickUp = true;
+        //    }
+        //}
+        //private void OnTriggerExit(Collider other)
+        //{
+        //    if (other.tag == "Item")
+        //    {
+        //        canPickUp = false;
+        //    }
+        //}
 
         private void PlayLandingSound()
         {
