@@ -43,19 +43,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-
-        //private bool canPickUp = false;
-        //private int itemsCollected;
-        //private GameObject thisItem;
-
-        //public float respawnTimer = 5.0f;
-        //public bool collected = false;
-
-
-        //public TMP_Text itemCount;
-        //public TMP_Text pressE;
-
-        // Use this for initialization
         private void Start()
         {
             m_CharacterController = GetComponent<CharacterController>();
@@ -74,20 +61,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            //itemCount.text = "Items collected " + itemsCollected;
-
-            //if (canPickUp == false)
-            //{
-            //    //pressE.GetComponent<GameObject>().SetActive(false);
-            //    pressE.text = " ";
-            //}
-            //else if (canPickUp == true)
-            //{
-            //    //pressE.GetComponent<GameObject>().SetActive(true);
-            //    pressE.text = "Press E";
-            //}
-
-
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -111,23 +84,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         }
-
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.tag == ("Item"))
-        //    {
-        //        thisItem = other.gameObject;
-
-        //        canPickUp = true;
-        //    }
-        //}
-        //private void OnTriggerExit(Collider other)
-        //{
-        //    if (other.tag == "Item")
-        //    {
-        //        canPickUp = false;
-        //    }
-        //}
 
         private void PlayLandingSound()
         {

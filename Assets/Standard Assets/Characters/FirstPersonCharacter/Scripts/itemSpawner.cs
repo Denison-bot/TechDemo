@@ -6,47 +6,43 @@ using TMPro;
 public class itemSpawner : MonoBehaviour
 {
     public bool canPickUp = false;
-    public int itemsCollected;
+    //public int itemsCollected;
     private GameObject thisItem;
 
     public float respawnTimer = 5.0f;
     public bool collected = false;
 
-
-    public TMP_Text itemCount;
-    public TMP_Text pressE;
+    public ItemManager itemManager;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //thisItem = GetComponent<GameObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        itemCount.text = "Items collected " + itemsCollected;
-
         if (canPickUp == false)
         {
             //pressE.GetComponent<GameObject>().SetActive(false);
-            pressE.text = " ";
         }
         else if (canPickUp == true)
         {
             //pressE.GetComponent<GameObject>().SetActive(true);
-            pressE.text = "Press E";
+            itemManager.pressE.text = "Press E";
         }
 
         if (canPickUp == true && Input.GetKeyDown(KeyCode.E))
         {
             thisItem = gameObject;
             //Debug.Log("Button Pressed");
-            //thisItem.SetActive(false);
-            itemsCollected++;
-            //collected = true;
-            //pressEText.SetActive(false);
-            //canPickUp = false;
+            itemManager.itemsCollected++;
+            collected = true;
+            itemManager.pressE.text = " ";
+            canPickUp = false;
+            itemManager.itemCount.text = "Items collected " + itemManager.itemsCollected;
+            thisItem.GetComponent<MeshRenderer>().enabled = false;
             //Debug.Log("ALIVE");
         }
         if (collected == true)
@@ -54,20 +50,24 @@ public class itemSpawner : MonoBehaviour
             respawnTimer -= Time.deltaTime;
             if (respawnTimer <= 0)
             {
-                thisItem.SetActive(true);
+                thisItem.GetComponent<MeshRenderer>().enabled = true;
                 collected = false;
                 respawnTimer = 5.0f;
             }
-
+        }
+        if (GetComponent<MeshRenderer>().enabled == false)
+        {
+            itemManager.pressE.text = " ";
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        thisItem = other.gameObject;
+        
         canPickUp = true;
     }
     private void OnTriggerExit(Collider other)
     {
         canPickUp = false;
+        itemManager.pressE.text = " ";
     }
 }
