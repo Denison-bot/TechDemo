@@ -5,8 +5,8 @@ using TMPro;
 
 public class itemSpawner : MonoBehaviour
 {
-    private bool canPickUp = false;
-    private int itemsCollected;
+    public bool canPickUp = false;
+    public int itemsCollected;
     private GameObject thisItem;
 
     public float respawnTimer = 5.0f;
@@ -19,7 +19,7 @@ public class itemSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemsCollected = 0;
+
     }
 
     // Update is called once per frame
@@ -40,12 +40,14 @@ public class itemSpawner : MonoBehaviour
 
         if (canPickUp == true && Input.GetKeyDown(KeyCode.E))
         {
+            thisItem = gameObject;
             //Debug.Log("Button Pressed");
-            thisItem.SetActive(false);
+            //thisItem.SetActive(false);
             itemsCollected++;
-            collected = true;
+            //collected = true;
             //pressEText.SetActive(false);
-            canPickUp = false;
+            //canPickUp = false;
+            //Debug.Log("ALIVE");
         }
         if (collected == true)
         {
