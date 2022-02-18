@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class checkPoint : MonoBehaviour
 {
-    public DeathBox deathBox;
+    public PlayerManager playerManager;
 
     private void OnTriggerEnter(Collider other)
     {
-        deathBox.checkPointHit = true;
+        playerManager.respawnPos = this.gameObject.transform.position;
     }
 }
