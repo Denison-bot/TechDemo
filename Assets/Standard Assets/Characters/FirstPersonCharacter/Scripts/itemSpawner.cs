@@ -6,7 +6,7 @@ using TMPro;
 public class itemSpawner : MonoBehaviour
 {
     public bool canPickUp = false;
-    //public int itemsCollected;
+    public int itemsCollected;
     private GameObject thisItem;
 
     public float respawnTimer = 5.0f;
