@@ -527,3 +527,5 @@ MonoBehaviour:
   buttonPressable: 0
   doorOpen: 0
   doorTimer: 5
+  itemManager: {fileID: 0}
+  doorSlide: {fileID: 0}

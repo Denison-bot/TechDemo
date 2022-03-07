@@ -12,6 +12,8 @@ public class doorButton : MonoBehaviour
     private Vector3 openPos;
     public float doorTimer = 5.0f;
     public ItemManager itemManager;
+    public AudioSource source;
+    public AudioClip doorSlide;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class doorButton : MonoBehaviour
         startPos = door.transform.position;
         openPos = door.transform.position;
         openPos.y = door.transform.position.y + 4;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class doorButton : MonoBehaviour
         if (buttonPressable == true && Input.GetKeyDown(KeyCode.E))
         {
             doorOpen = true;
+            source.PlayOneShot(doorSlide);
         }
         if (doorOpen == true)
         {
