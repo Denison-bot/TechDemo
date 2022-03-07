@@ -9,7 +9,8 @@ public class DoorTrigger : MonoBehaviour
     private float speed = 3.0f;
     private Vector3 startPos;
     private Vector3 openPos;
-    public AudioSource doorSlide;
+    public AudioSource source;
+    public AudioClip doorSlide;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class DoorTrigger : MonoBehaviour
         startPos = door.transform.position;
         openPos = door.transform.position;
         openPos.y = door.transform.position.y + 4;
-        doorSlide = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class DoorTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         doorOpen = true;
-        doorSlide.Play();
+        source.PlayOneShot(doorSlide);
 
         
     }
