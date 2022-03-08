@@ -528,4 +528,6 @@ MonoBehaviour:
   doorOpen: 0
   doorTimer: 5
   itemManager: {fileID: 0}
-  doorSlide: {fileID: 0}
+  doorSlide: {fileID: 8300000, guid: 309a9c4cd3f2b704d978b2702a49e3a2, type: 3}
+  doorBeep: {fileID: 8300000, guid: 4f1395a594fe40f46a6bbf12d0cdb48b, type: 3}
+  doorClose: {fileID: 8300000, guid: a0e5e13ce9e3dc543a92e039d0fcd0fc, type: 3}

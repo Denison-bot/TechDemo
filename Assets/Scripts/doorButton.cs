@@ -12,8 +12,12 @@ public class doorButton : MonoBehaviour
     private Vector3 openPos;
     public float doorTimer = 5.0f;
     public ItemManager itemManager;
-    public AudioSource source;
+    private AudioSource source;
+    private AudioSource doorBeepSource;
+    private AudioSource doorSlideClose;
     public AudioClip doorSlide;
+    public AudioClip doorBeep;
+    public AudioClip doorClose;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,8 @@ public class doorButton : MonoBehaviour
         openPos = door.transform.position;
         openPos.y = door.transform.position.y + 4;
         source = GetComponent<AudioSource>();
+        doorBeepSource = GetComponent<AudioSource>();
+        doorSlideClose = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,6 +44,7 @@ public class doorButton : MonoBehaviour
         if (buttonPressable == true && Input.GetKeyDown(KeyCode.E))
         {
             doorOpen = true;
+            doorBeepSource.PlayOneShot(doorBeep);
             source.PlayOneShot(doorSlide);
         }
         if (doorOpen == true)
@@ -54,6 +61,7 @@ public class doorButton : MonoBehaviour
                 if (doorTimer <= 0)
                 {
                     doorOpen = false;
+                    doorSlideClose.PlayOneShot(doorClose);
                 }
             }
         }

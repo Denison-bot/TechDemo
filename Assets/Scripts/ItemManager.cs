@@ -7,15 +7,17 @@ public class ItemManager : MonoBehaviour
 {
     public TMP_Text itemCount;
     public TMP_Text pressE;
-    public int itemsCollected;
+    public int ammo;
 
     
 
     // Start is called before the first frame update
     void Start()
     {
+        ammo = 0;
+
         pressE.text = " ";
-        itemCount.text = "Items collected " + itemsCollected;
+        itemCount.text = "AMMO: " + ammo;
     }
 
     // Update is called once per frame

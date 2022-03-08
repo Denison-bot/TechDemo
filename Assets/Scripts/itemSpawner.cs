@@ -8,16 +8,22 @@ public class itemSpawner : MonoBehaviour
     public bool canPickUp = false;
     public int itemsCollected;
     private GameObject thisItem;
+    private AudioSource ammoSource;
+    public AudioClip ammoPickUp;
 
     public float respawnTimer = 5.0f;
     public bool collected = false;
 
     public ItemManager itemManager;
 
+    public int ammoPackCont;
+
     // Start is called before the first frame update
     void Start()
     {
         //thisItem = GetComponent<GameObject>();
+        ammoSource = GetComponent<AudioSource>();
+        ammoPackCont = 30;
     }
 
     // Update is called once per frame
@@ -37,11 +43,12 @@ public class itemSpawner : MonoBehaviour
         {
             thisItem = gameObject;
             //Debug.Log("Button Pressed");
-            itemManager.itemsCollected++;
+            itemManager.ammo = itemManager.ammo + ammoPackCont;
             collected = true;
+            ammoSource.PlayOneShot(ammoPickUp);
             itemManager.pressE.text = " ";
             canPickUp = false;
-            itemManager.itemCount.text = "Items collected " + itemManager.itemsCollected;
+            itemManager.itemCount.text = "AMMO: " + itemManager.ammo;
             thisItem.GetComponent<MeshRenderer>().enabled = false;
             //Debug.Log("ALIVE");
         }
