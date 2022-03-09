@@ -13,9 +13,9 @@ public class verticalPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        minHeight = platform.transform.position;
+        minHeight = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         maxHeight = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
-        speed = 3.0f;
+         // default speed
 
     }
 
@@ -25,7 +25,7 @@ public class verticalPlatform : MonoBehaviour
         if (movingUp)
         {
             platform.transform.Translate(Vector3.up * speed * Time.deltaTime);
-            if (platform.transform.position.y <= maxHeight.y)
+            if (platform.transform.position.y >= maxHeight.y)
             {
                 movingUp = false;
             }

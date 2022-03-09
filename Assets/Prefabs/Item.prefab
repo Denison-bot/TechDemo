@@ -115,6 +115,7 @@ MonoBehaviour:
   respawnTimer: 5
   collected: 0
   itemManager: {fileID: 0}
+  ammoPackCont: 0
 --- !u!82 &8744895877680650728
 AudioSource:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
