@@ -7,6 +7,7 @@ public class HorizontalPlatform : MonoBehaviour
     public float speed;
     public bool movingForeward = true;
     public GameObject platform;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +26,24 @@ public class HorizontalPlatform : MonoBehaviour
         {
             platform.transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            player.transform.parent = transform;
+            Physics.autoSyncTransforms = true;
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            player.transform.parent = null;
+            Physics.autoSyncTransforms = true;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

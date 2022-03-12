@@ -8,7 +8,9 @@ public class verticalPlatform : MonoBehaviour
     public Vector3 minHeight;
     public float speed;
     public bool movingUp;
+    public bool movingDown;
     public GameObject platform;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +41,23 @@ public class verticalPlatform : MonoBehaviour
                 movingUp = true;
             }
         }
-    } 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            player.transform.parent = transform;
+            Physics.autoSyncTransforms = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            player.transform.parent = null;
+            Physics.autoSyncTransforms = true;
+        }
+    }
 }
