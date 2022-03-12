@@ -6,7 +6,7 @@ public class HorizontalPlatform : MonoBehaviour
 {
     public float speed;
     public bool movingForeward = true;
-
+    public GameObject platform;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +19,11 @@ public class HorizontalPlatform : MonoBehaviour
     {
         if (movingForeward == true)
         {
-            gameObject.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            platform.transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
         if (movingForeward == false)
         {
-            gameObject.transform.Translate(Vector3.back * speed * Time.deltaTime);
+            platform.transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
 
 
