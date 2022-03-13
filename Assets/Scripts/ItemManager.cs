@@ -7,6 +7,7 @@ public class ItemManager : MonoBehaviour
 {
     public TMP_Text itemCount;
     public TMP_Text pressE;
+    public TMP_Text pressEtoSpawn;
     public int ammo;
 
     
@@ -18,6 +19,8 @@ public class ItemManager : MonoBehaviour
 
         pressE.text = " ";
         itemCount.text = "AMMO: " + ammo;
+
+        pressEtoSpawn.text = " ";
     }
 
     // Update is called once per frame
