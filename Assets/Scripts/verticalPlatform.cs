@@ -60,4 +60,5 @@ public class verticalPlatform : MonoBehaviour
             Physics.autoSyncTransforms = true;
         }
     }
+
 }
